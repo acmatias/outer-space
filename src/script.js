@@ -71,7 +71,7 @@ const mesh3 = new THREE.Mesh(new THREE.TorusKnotGeometry(0.8, 0.35, 100, 16), ma
 
 mesh1.position.y = -objectDistance * 0
 mesh2.position.y = -objectDistance * 1
-mesh3.position.y = -objectDistance * 2f
+mesh3.position.y = -objectDistance * 2
 
 mesh1.position.x = 2
 mesh2.position.x = -2
