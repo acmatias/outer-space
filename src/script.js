@@ -109,6 +109,8 @@ gltfLoader.load('/models/astronaughtScene.glb', (gltf) => {
     gltf.scene.receiveShadow = true
     scene.add(gltf.scene)
 
+    console.log(gltf.scene)
+
     gui.add(gltf.scene.rotation, 'x').min(-Math.PI).max(Math.PI).step(0.001).name('AstroRotationX')
     gui.add(gltf.scene.rotation, 'y').min(-Math.PI).max(Math.PI).step(0.001).name('AstroRotationY')
     gui.add(gltf.scene.position, 'x').min(-150).max(150).step(0.001).name('posX')
@@ -250,7 +252,7 @@ renderer.outputEncoding = THREE.sRGBEncoding
 renderer.toneMapping = THREE.ACESFilmicToneMapping
 renderer.toneMappingExposure = 0.3
 renderer.shadowMap.enabled = true
-renderer.shadowMap.type = THREE.PCFShadowMap
+renderer.shadowMap.type = THREE.PCFSoftShadowMap
 
 gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
 gui.add(renderer, 'toneMapping', {
