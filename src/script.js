@@ -105,8 +105,6 @@ gltfLoader.load('/models/astronaughtScene.glb', (gltf) => {
     gltf.scene.position.set(-3.5, -2, 0)
     gltf.scene.rotation.x = 0.2
     gltf.scene.rotation.y = -0.291
-    gltf.scene.castShadow = true
-    gltf.scene.receiveShadow = true
     scene.add(gltf.scene)
 
     console.log(gltf.scene)
@@ -167,10 +165,10 @@ scene.add(particles)
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8)
 scene.add(ambientLight)
 
-const directionalLight = new THREE.DirectionalLight('#ffffff', 2)
+const directionalLight = new THREE.DirectionalLight('#ffffff', 0)
 directionalLight.position.set(0.25, 2.601, 5)
 directionalLight.castShadow = true
-directionalLight.shadow.camera.far = 100
+directionalLight.shadow.camera.far = 10
 directionalLight.shadow.mapSize.set(1024, 1024)
 directionalLight.shadow.normalBias = 0.015
 scene.add(directionalLight)
@@ -181,10 +179,10 @@ gui.add(directionalLight.position, 'y').min(-5).max(5).step(0.001).name('moonLig
 gui.add(directionalLight.position, 'z').min(-5).max(5).step(0.001).name('moonLightZ')
 gui.add(directionalLight.shadow, 'normalBias').min(0).max(0.1).step(0.0001)
 
-const pointLight = new THREE.PointLight('#E79B58', 10)
+const pointLight = new THREE.PointLight('#E79B58', 20)
 pointLight.position.set(-0.605, -0.214, 0.177)
 pointLight.castShadow = true
-pointLight.shadow.camera.far = 50
+pointLight.shadow.camera.far = 5
 pointLight.shadow.mapSize.set(1024, 1024)
 pointLight.shadow.normalBias = 0.015
 gui.add(pointLight, 'intensity').min(0).max(100).step(0.001).name('lightIntensity')
@@ -252,7 +250,7 @@ renderer.outputEncoding = THREE.sRGBEncoding
 renderer.toneMapping = THREE.ACESFilmicToneMapping
 renderer.toneMappingExposure = 0.3
 renderer.shadowMap.enabled = true
-renderer.shadowMap.type = THREE.PCFSoftShadowMap
+renderer.shadowMap.type = THREE.PCFShadowMap
 
 gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
 gui.add(renderer, 'toneMapping', {
