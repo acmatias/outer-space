@@ -8,6 +8,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
  * Debug
  */
 const gui = new dat.GUI({ width: 400 })
+gui.show(false)
 
 const parameters = {
     materialColor: '#ffeded',
