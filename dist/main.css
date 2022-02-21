@@ -5,6 +5,7 @@
 
 html {
     background: #1e1a20;
+    scroll-behavior: smooth;
 }
 
 /* html,
@@ -35,6 +36,14 @@ body
 
 section:nth-child(odd) {
     justify-content: flex-end;
+}
+
+.navbar {
+    position: relative;
+    z-index: 20;
+    top: 4rem;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 
